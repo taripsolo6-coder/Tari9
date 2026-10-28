@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      "gemini-1.5-flash:
+      https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent
       {
         method: "POST",
         headers: {
