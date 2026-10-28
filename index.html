@@ -1,55 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#101020"><link rel="manifest" href="/manifest.json">
-<title>WorldX AI</title>
-<style>
-:root{--bg:#090914;--panel:#131326;--panel2:#1c1c35;--text:#f7f7ff;--muted:#a6a6c2;--accent:#9b7bff;--cyan:#49d8e8;--line:#2b2b48}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#30225d 0,transparent 35%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
-button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:960px;margin:auto;min-height:100vh;display:flex;flex-direction:column;padding:14px}
-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 2px 16px;border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:10px}.logo{width:42px;height:42px;border-radius:15px;background:linear-gradient(135deg,var(--accent),var(--cyan));display:grid;place-items:center;color:#101020;font-weight:900;font-size:21px}
-h1{font-size:20px;margin:0}header p{margin:2px 0 0;color:var(--muted);font-size:12px}.lang{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:9px;max-width:130px}
-.hero{padding:22px 4px 16px}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800}.hero h2{font-size:clamp(25px,5vw,40px);line-height:1.2;margin:8px 0}.hero p{color:var(--muted);line-height:1.7;margin:0}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:8px 0 16px}.tile{border:1px solid var(--line);background:linear-gradient(145deg,#1b1b34,#111120);border-radius:18px;padding:14px;text-align:right;color:var(--text);min-height:108px}.tile .ico{font-size:23px}.tile b{display:block;margin:7px 0 3px}.tile small{color:var(--muted);line-height:1.5}
-.panel{background:#111120;border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:13px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.panel h3{margin:0;font-size:16px}.tag{font-size:11px;background:#282044;color:#cfc2ff;padding:5px 9px;border-radius:999px}
-.chat{display:flex;flex-direction:column;gap:10px;min-height:120px;max-height:390px;overflow:auto;padding:4px 0 12px}.msg{max-width:90%;padding:11px 13px;border-radius:15px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}.bot{background:var(--panel2);align-self:flex-start;border-bottom-left-radius:5px}.user{background:linear-gradient(135deg,#7254d8,#4c4caa);align-self:flex-end;border-bottom-right-radius:5px}.compose{display:flex;gap:8px;align-items:flex-end}.compose textarea{flex:1;resize:vertical;min-height:48px;max-height:140px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:12px;outline:none}.primary,.secondary{border:0;border-radius:13px;padding:12px 14px;font-weight:700}.primary{background:linear-gradient(135deg,var(--accent),#6d79ff);color:white}.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.tools button{font-size:12px;padding:9px 11px}.note{font-size:12px;color:var(--muted);line-height:1.65;margin:10px 2px}.status{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}.dot{width:7px;height:7px;background:#f4bd50;border-radius:50%}.hidden{display:none!important}footer{color:#8585a5;font-size:11px;text-align:center;padding:12px 0 20px}
-@media(min-width:700px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.tile{min-height:125px}}@media(max-width:420px){.app{padding:11px}.grid{gap:8px}.tile{padding:11px}.msg{max-width:96%}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorldX AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 20px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .credits-badge {
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid #3b82f6;
+      color: #60a5fa;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .main-content {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #38bdf8;
+    }
+  </style>
 </head>
-<body><div class="app">
-<header><div class="brand"><div class="logo">W</div><div><h1>WorldX AI</h1><p id="tagline">ذكاء اصطناعي في مكان واحد</p></div></div>
-<select id="language" class="lang" aria-label="لغة الواجهة"><option value="ar">العربية</option><option value="en">English</option><option value="it">Italiano</option><option value="fr">Français</option><option value="es">Español</option></select></header>
-<section class="hero"><div class="eyebrow">YOUR CREATIVE AI SPACE</div><h2 id="welcome">مرحبًا بك في عالمك الذكي.</h2><p id="intro">اكتب فكرة، تحدث بصوتك، جهّز قصة أو سيناريو، واستكشف أدوات الذكاء الاصطناعي من واجهة واحدة.</p></section>
-<section class="grid">
-<button class="tile" data-prompt="ساعدني في كتابة قصة ممتعة من البداية للنهاية."><span class="ico">✍️</span><b>الكتابة والقصص</b><small>أفكار وحوار وسيناريوهات</small></button>
-<button class="tile" data-prompt="اكتب لي وصفًا دقيقًا لصورة أريد إنشاءها بالذكاء الاصطناعي."><span class="ico">🎨</span><b>استوديو الصور</b><small>أفكار وأوصاف للصور</small></button>
-<button class="tile" data-prompt="اكتب سيناريو فيديو قصير وقسمه إلى مشاهد مع الحوار."><span class="ico">🎬</span><b>استوديو الفيديو</b><small>مشاهد وحوار وخطة إنتاج</small></button>
-<button class="tile" data-prompt="ترجم النص التالي إلى اللغة التي أحددها واشرحه ببساطة."><span class="ico">🌍</span><b>اللغات والترجمة</b><small>مساعدة بلغات متعددة</small></button></section>
-<section class="panel"><div class="panel-head"><h3>💬 محادثة WorldX</h3><span id="connection" class="tag">جارٍ فحص الاتصال</span></div>
-<div id="chat" class="chat" aria-live="polite"><div class="msg bot">أهلًا بك في WorldX AI. إذا نُشر الموقع وربطته بخادم Gemini، يمكنك بدء المحادثة هنا.</div></div>
-<div class="compose"><textarea id="prompt" placeholder="اكتب رسالتك هنا..." rows="2"></textarea><button id="send" class="primary">إرسال</button></div>
-<div class="tools"><button id="voice" class="secondary">🎙️ تحدث</button><button id="speak" class="secondary">🔊 قراءة آخر رد</button><button id="clear" class="secondary">مسح المحادثة</button></div>
-<p class="note">الصوت يعتمد على دعم المتصفح وإذن الميكروفون. لا تضع مفاتيح API في ملفات الواجهة العامة.</p></section>
-<section class="panel"><div class="panel-head"><h3>🧩 حالة الخدمات</h3><span class="tag">نسخة أولية</span></div><p id="serviceText" class="note">سيظهر هنا إن كان خادم الذكاء الاصطناعي متصلًا.</p><div class="tools"><button id="test" class="secondary">اختبار اتصال AI</button><button id="videoInfo" class="secondary">حول صناعة الفيديو</button></div></section>
-<footer>WorldX AI · نسخة أولية قابلة للتطوير</footer></div>
-<script>
-const chat=document.getElementById('chat'), input=document.getElementById('prompt'), connection=document.getElementById('connection');
-const translations={ar:['مرحبًا بك في عالمك الذكي.','اكتب فكرة، تحدث بصوتك، جهّز قصة أو سيناريو، واستكشف أدوات الذكاء الاصطناعي من واجهة واحدة.','ذكاء اصطناعي في مكان واحد','اكتب رسالتك هنا...','إرسال'],en:['Welcome to your AI world.','Write an idea, use your voice, draft a story or script, and explore AI tools in one place.','AI in one place','Write your message...','Send'],it:['Benvenuto nel tuo mondo AI.','Scrivi un’idea, usa la voce, prepara una storia o una sceneggiatura ed esplora gli strumenti AI.','AI in un unico posto','Scrivi un messaggio...','Invia'],fr:['Bienvenue dans votre monde IA.','Écrivez une idée, utilisez votre voix, préparez une histoire ou un scénario et explorez les outils IA.','L’IA au même endroit','Écrivez votre message...','Envoyer'],es:['Bienvenido a tu mundo de IA.','Escribe una idea, usa tu voz, prepara una historia o un guion y explora herramientas de IA.','IA en un solo lugar','Escribe tu mensaje...','Enviar']};
-function add(t,who){let d=document.createElement('div');d.className='msg '+who;d.textContent=t;chat.appendChild(d);chat.scrollTop=chat.scrollHeight;return d}
-async function send(){let q=input.value.trim();if(!q)return;add(q,'user');input.value='';let pending=add('جارٍ التفكير…','bot');document.getElementById('send').disabled=true;
-try{let r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,language:document.getElementById('language').value})});let data=await r.json();pending.textContent=data.reply||data.error||'لم يصل رد مفهوم.';if(!r.ok)pending.textContent='تعذر الاتصال بالخدمة: '+(data.error||r.status); }
-catch(e){pending.textContent='لم أستطع الاتصال بخادم الذكاء الاصطناعي. تأكد من نشر الواجهة مع مجلد api وإعداد مفتاح Gemini على الاستضافة. إذا فتحت الملف مباشرة من الهاتف فلن يعمل الخادم.'}
-finally{document.getElementById('send').disabled=false}}
-document.getElementById('send').addEventListener('click',send);input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});
-document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.prompt;input.focus()}));
-document.getElementById('clear').onclick=()=>{chat.innerHTML='';add('بدأنا محادثة جديدة.','bot')};
-document.getElementById('speak').onclick=()=>{let m=[...chat.querySelectorAll('.bot')];if(!m.length)return;if(!('speechSynthesis'in window)){alert('القراءة الصوتية غير مدعومة هنا.');return}let u=new SpeechSynthesisUtterance(m[m.length-1].textContent);u.lang=({'ar':'ar-SA','en':'en-US','it':'it-IT','fr':'fr-FR','es':'es-ES'})[document.getElementById('language').value];speechSynthesis.cancel();speechSynthesis.speak(u)};
-document.getElementById('voice').onclick=()=>{let SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('التعرف على الصوت غير مدعوم في هذا المتصفح. اكتب رسالتك بدلًا من ذلك.');return}let r=new SR();r.lang=({'ar':'ar-SA','en':'en-US','it':'it-IT','fr':'fr-FR','es':'es-ES'})[document.getElementById('language').value];r.onresult=e=>{input.value=e.results[0][0].transcript;input.focus()};r.onerror=()=>alert('تحقق من إذن الميكروفون ثم حاول مجددًا.');r.start()};
-document.getElementById('test').onclick=async()=>{document.getElementById('serviceText').textContent='جارٍ الاختبار…';try{let r=await fetch('/api/health');let d=await r.json();document.getElementById('serviceText').textContent=d.message||'الخادم متاح.';connection.textContent=d.aiConfigured?'Gemini متصل بالإعدادات':'الخادم موجود، يلزم إعداد المفتاح';}catch(e){document.getElementById('serviceText').textContent='الخادم غير متاح. انشر المشروع على منصة تدعم وظائف API.';connection.textContent='غير متصل'}};
-document.getElementById('videoInfo').onclick=()=>add('النسخة الحالية لا تُنشئ ملف فيديو فعليًا. ستحتاج هذه الميزة إلى مزود توليد فيديو وواجهة API منفصلة؛ قد توجد حصص تجريبية لكنها ليست مضمونة أو غير محدودة.','bot');
-document.getElementById('language').onchange=e=>{let l=e.target.value;document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';document.getElementById('welcome').textContent=translations[l][0];document.getElementById('intro').textContent=translations[l][1];document.getElementById('tagline').textContent=translations[l][2];input.placeholder=translations[l][3];document.getElementById('send').textContent=translations[l][4]};
-(async()=>{try{let r=await fetch('/api/health');let d=await r.json();connection.textContent=d.aiConfigured?'Gemini جاهز':'الخادم متاح / المفتاح يحتاج إعدادًا';document.getElementById('serviceText').textContent=d.message}catch(e){connection.textContent='لم يُنشر الخادم بعد';document.getElementById('serviceText').textContent='بعد نشر المشروع وإعداد مفتاح Gemini ستعمل المحادثة الحقيقية.'}})();
-if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('/sw.js').catch(()=>{});
-</script></body></html>
+<body>
+
+  <!-- شريط التنقل العلوي مع عداد النقاط -->
+  <div class="header">
+    <h2>WorldX AI 🚀</h2>
+    <div class="credits-badge">
+      ⚡ الرصيد: <span id="user-credits-display">100</span> نقطة
+    </div>
+  </div>
+
+  <!-- المحتوى الرئيسي -->
+  <div class="main-content">
+    <h1>مرحباً بك في منصة WorldX AI الذكية</h1>
+    <p>منصتك المتكاملة لتوليد الصور والفيديوهات وكتابة النصوص بالدارجة المغربية.</p>
+  </div>
+
+  <!-- نظام الكريديتس والتحكم بالنقاط (100 نقطة يومياً) -->
+  <script>
+    const DAILY_CREDITS = 100;
+    const VIDEO_COST = 6;
+
+    // دالة جلب النقاط اليومية أو تجديدها تلقائياً
+    function getDailyCredits() {
+      const today = new Date().toDateString();
+      const savedData = JSON.parse(localStorage.getItem('worldx_credits') || '{}');
+
+      if (savedData.date !== today) {
+        const freshData = { date: today, credits: DAILY_CREDITS };
+        localStorage.setItem('worldx_credits', JSON.stringify(freshData));
+        return DAILY_CREDITS;
+      }
+      return savedData.credits;
+    }
+
+    // دالة خصم النقاط عند توليد فيديو
+    function deductCredits(amount = VIDEO_COST) {
+      const today = new Date().toDateString();
+      let savedData = JSON.parse(localStorage.getItem('worldx_credits') || `{"date":"${today}","credits":100}`);
+      
+      if (savedData.credits >= amount) {
+        savedData.credits -= amount;
+        localStorage.setItem('worldx_credits', JSON.stringify(savedData));
+        updateCreditsUI();
+        return true; // تمت العملية بنجاح
+      } else {
+        alert("⚠️ رصيدك اليومي غير كافي! انتظر حتى يتجدد الرصيد غداً.");
+        return false; // الرصيد لا يكفي
+      }
+    }
+
+    // دالة تحديث الواجهة بعرض النقاط المتبقية
+    function updateCreditsUI() {
+      const creditsElement = document.getElementById('user-credits-display');
+      if (creditsElement) {
+        creditsElement.innerText = getDailyCredits();
+      }
+    }
+
+    // تشغيل التحديث فور تحميل الصفحة
+    window.addEventListener('DOMContentLoaded', () => {
+      updateCreditsUI();
+    });
+  </script>
+
+</body>
+</html>
